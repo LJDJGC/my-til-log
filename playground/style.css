@@ -1,19 +1,44 @@
 .container {
-  display: grid;
-  grid-template-rows: 100px 100px 100px;
-  grid-template-columns: 100px 100px 100px;
+  display: inline-grid;
+  grid-template: 40px 40px 40px 40px 40px / 40px 40px 40px 40px 40px;
+  background-color: lightblue;
 }
 
-.item {
-  background-color: orange;
-  border: 1px solid black;
+.room {
+  border: 1px solid;
+  font-size: 50%;
   text-align: center;
 }
 
-.first-row {
-  background-color: pink; 
+#living-room {
+  grid-column-start: 1;
+  grid-column-end: 6;
+  grid-row-start: 1;
+  grid-row-end: 3; 
 }
 
-.last-column {
-  background-color: lightblue;  
+#kitchen {
+  grid-column: 4 / 6;
+  grid-row: 3 / 6;
+}
+
+#bedroom {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+
+#bathroom {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+#closet {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
 }
