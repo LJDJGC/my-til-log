@@ -1,8 +1,13 @@
-// get variable from inline style
-element.style.getPropertyValue("--my-var");
+const listItems = document.querySelectorAll("li");
 
-// get variable from wherever
-getComputedStyle(element).getPropertyValue("--my-var");
+function toggleDone(e) {
+    if (!e.target.className) {
+        e.target.className = "done";
+    } else {
+        e.target.className = "";
+    }
+}
 
-// set variable on inline style
-element.style.setProperty("--my-var", jsVar + 4);
+listItems.forEach((item) => {
+    item.addEventListener("click", toggleDone);
+})
