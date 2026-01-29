@@ -1,13 +1,5 @@
-const listItems = document.querySelectorAll("li");
+const variable = 'property';
 
-function toggleDone(e) {
-    if (!e.target.className) {
-        e.target.className = "done";
-    } else {
-        e.target.className = "";
-    }
-}
+myObject.variable; // this gives us 'undefined' because it's looking for a property named 'variable' in our object
 
-listItems.forEach((item) => {
-    item.addEventListener("click", toggleDone);
-})
+myObject[variable]; // this is equivalent to myObject['property'] and returns 'Value!'
