@@ -1,17 +1,23 @@
-let animal = {
-  jumps: null
+let hamster = {
+  stomach: [],
+
+  eat(food) {
+    // this.stomach.push の代わりに this.stomach に代入する
+    this.stomach = [food];
+  }
 };
-let rabbit = {
-  __proto__: animal,
-  jumps: true
+
+let speedy = {
+   __proto__: hamster
 };
 
-alert( rabbit.jumps ); // ? (1)true
+let lazy = {
+  __proto__: hamster
+};
 
-delete rabbit.jumps;
+// Speedy は食べ物を見つけました
+speedy.eat("apple");
+alert( speedy.stomach ); // apple
 
-alert( rabbit.jumps ); // ? (2)null
-
-delete animal.jumps;
-
-alert( rabbit.jumps ); // ? (3)false undifunedが答えらしい。falseではない
+// Lazy の胃は空っぽです
+alert( lazy.stomach ); // <nothing>
