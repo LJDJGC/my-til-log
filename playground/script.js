@@ -1,31 +1,17 @@
-function Person(name) {
-  this.name = name;
-}
-
-Person.prototype.sayName = function() {
-  console.log(`Hello, I'm ${this.name}!`);
+let animal = {
+  jumps: null
+};
+let rabbit = {
+  __proto__: animal,
+  jumps: true
 };
 
-function Player(name, marker) {
-  this.name = name;
-  this.marker = marker;
-}
+alert( rabbit.jumps ); // ? (1)true
 
-Player.prototype.getMarker = function() {
-  console.log(`My marker is '${this.marker}'`);
-};
+delete rabbit.jumps;
 
-Object.getPrototypeOf(Player.prototype); // returns Object.prototype
+alert( rabbit.jumps ); // ? (2)null
 
-// Now make `Player` objects inherit from `Person`
-Object.setPrototypeOf(Player.prototype, Person.prototype);
-Object.getPrototypeOf(Player.prototype); // returns Person.prototype
+delete animal.jumps;
 
-const player1 = new Player('yohe', 'X');
-const player2 = new Player('tanaka kakuei', 'O');
-
-player1.sayName(); 
-player2.sayName(); 
-
-player1.getMarker(); // My marker is 'X'
-player2.getMarker(); // My marker is 'O'
+alert( rabbit.jumps ); // ? (3)false undifunedが答えらしい。falseではない
