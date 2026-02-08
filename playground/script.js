@@ -1,10 +1,10 @@
-const age = 100;
+function outer() {
+    const outerar = 'Hey I am the outer Var';
 
-function go () { 
-  const age = 200;
-  const hair = 'blonde';
-  console.log(hair);
-  console.log(age);
+    function inner() {
+        const innerVar = "hey I am an inner var";
+        console.log(innerVar);
+        console.log(outerVar);
+    }
 }
 
-console.log(age);
