@@ -1,11 +1,9 @@
-function  createGame(gameName){
-  let score = 0;
+const Formatter = (function() {
+  const log = (message) => console.log(`[${Date.now()}] Loger: ${message}`);
 
-  return function win(){
-    score ++;
-    return `Your name ${gameName} score is ${score}`
-  }
-}
+  const makeUppercase = (text) => {
+    log("Making uppercase");
+    return text.toUpperCase();
+})();
 
-const hockeyGame = createGame('Hockey');
-const sccerGame = createGame('Soccer');
+Formatter.log("Hello");
