@@ -1,4 +1,10 @@
-const Formatter = (function() {
+const documentMock = (() => ({
+  querySelector: (selector) => ({
+    innerHTML: null,
+  }),
+}))();
+
+const Formatter = (function(doc) {
   const log = (message) => console.log(`[${Date.now()}] Logger: ${message}`);
 
   const makeUppercase = (text) => {
@@ -7,13 +13,11 @@ const Formatter = (function() {
   };
 
   const writeToDOM = (selector, message) => {
-    document.querySelector(selector).innerHTML = message;
+    doc.querySelector(selector).innerHTML = message;
   }
 
   return {
     makeUppercase,
     writeToDOM,
   }
-})();
-
-Formatter.writeToDOM("#target", "Hi there");
+})(document || documentMock);
